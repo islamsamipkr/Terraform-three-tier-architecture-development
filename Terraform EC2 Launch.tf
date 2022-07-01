@@ -9,13 +9,16 @@ terraform{
     
 }
 #Provider Block
-provider "aws"{
-    profile="default"
-    region="us-east-1"
+provider "aws" {
+  access_key = "AKIA3JCNOW73S2MU5EEU"
+  secret_key = "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"
+    region=var.aws_region
 }
 
 #Resource Block
 resource "aws_instance" "ec2demo" {
-    ami           = "ami-0cff7528ff583bf9a" # Amazon Linux in us-east-1, update as per your region
-    instance_type = "t2.micro"
+    ami           = data.aws_ami.amzlinux2.id # Amazon Linux in us-east-1, update as per your region
+    instance_type = var.instance_type
+    key_name=var.instance_keypair
+    vpc_security_group_ids=[aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
 }
