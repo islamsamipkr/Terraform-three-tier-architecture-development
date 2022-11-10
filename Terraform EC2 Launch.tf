@@ -7,7 +7,7 @@ terraform{
       }
     }
     
-}
+}   
 #Provider Block
 provider "aws" {
   access_key = "AKIA3JCNOW73S2MU5EEU"
