@@ -22,3 +22,4 @@ resource "aws_instance" "ec2demo" {
     key_name=var.instance_keypair
     vpc_security_group_ids=[aws_security_group.vpc-ssh.id,aws_security_group.vpc-web.id]
 }
+
