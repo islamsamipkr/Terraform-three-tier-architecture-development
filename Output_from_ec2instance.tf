@@ -6,4 +6,4 @@ output "instance_publicip"{
 output "instance_publicdns"{
     description="EC2 Instance Public DNS"
     value=aws_instance.ec2demo.public_dns
-}
+}  
